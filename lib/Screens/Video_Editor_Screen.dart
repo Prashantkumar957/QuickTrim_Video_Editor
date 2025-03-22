@@ -71,23 +71,79 @@ bool Seeking  =false;
         child: Column(
           children: [
             if(show_ediitng && _videoPlayerController!.value.isInitialized &&_videoEditorController!.initialized)...[
-               Stack(
-                 children: [
-                   AspectRatio(aspectRatio: _videoPlayerController!.value.aspectRatio,
-                   child:VideoPlayer(_videoPlayerController!),
-                   ),
-                   IconButton(
-                       onPressed: (){},
-                       icon: Icon(_videoPlayerController!.value.isPlaying? Icons.pause : Icons.play_arrow,
-                         color: Colors.white,
-                         size: 48,
+              //video preview or video display with slider
+               Expanded(
+                 flex: 4,
+                 child: Column(
+                   children: [
+                     Expanded(
+                       child: Stack(
+                         children: [
+                           AspectRatio(aspectRatio: _videoPlayerController!.value.aspectRatio,
+                           child:VideoPlayer(_videoPlayerController!),
+                           ),
+                           IconButton(
+                               onPressed: (){
+                                 setState(() {
+                                   if(_videoPlayerController!.value.isPlaying){
+                                     _videoPlayerController!.pause();
+                                   }
+                                   else{
+                                     if(!Seeking){
+                                       int StartTrimDur = _videoEditorController!.startTrim.inSeconds;
+                                       _videoPlayerController!.seekTo(Duration(seconds: StartTrimDur));
+                                     }
+                                     _videoPlayerController!.play();
+                                   }
 
+                                 });
+
+
+                               },
+                               icon: Icon(_videoPlayerController!.value.isPlaying? Icons.pause : Icons.play_arrow,
+                                 color: Colors.white,
+                                 size: 48,
+
+                               ),
+
+
+                           )
+                         ],
                        ),
+                     ),
+                     Slider(
 
 
-                   )
-                 ],
+                     value: _videoPlayerController!.value.position.inMilliseconds.toDouble(),
+                       max: _videoPlayerController!.value.position.inMilliseconds.toDouble(),
+                       onChangeStart: (value){
+                         Seeking=true;
+                        },
+                     onChanged: (value){
+
+                 _videoPlayerController!.seekTo(Duration(milliseconds: value.toInt()));
+
+                         setState(() {
+
+                         });
+
+                      },
+
+                      onChangeEnd: (value){
+                       Seeking=false;
+                       _videoPlayerController!.play();
+
+                      },
+
+
+
+
+                     )
+                   ],
+                 ),
                )
+
+
             ]
             else...[
               Expanded(child: Center(
