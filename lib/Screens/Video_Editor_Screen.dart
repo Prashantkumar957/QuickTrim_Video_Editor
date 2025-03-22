@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as path;
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:video_editor/video_editor.dart';
 import 'package:video_player/video_player.dart';
 class VideoEditorScreen extends StatefulWidget {
@@ -20,6 +22,21 @@ VideoEditorController? _videoEditorController;
 bool show_ediitng = false;
 bool Seeking  =false;
  List<String> VideoTrimTime = [];
+
+ Future<void> _mergeVideo () async{
+
+ }
+Future<void> _trimVideo () async{
+   if(_videoEditorController==null) return;
+   final start = _videoEditorController!.startTrim.inMilliseconds/1000;
+   final end = _videoEditorController!.endTrim.inMilliseconds/1000;
+   final Directory tempDir = await getTemporaryDirectory();
+   final timestamp = DateTime.now();
+   final String filename = "Trimmed_video $timestamp.mp4";
+
+
+
+}
 
   Future<void> _selectVideo () async {
    final XFile? file = await _picker.pickVideo(source: ImageSource.gallery);
@@ -141,7 +158,60 @@ bool Seeking  =false;
                      )
                    ],
                  ),
-               )
+               ),
+              //video  trimmer slider
+              TrimSlider(
+                controller: _videoEditorController!,
+                height: 60,
+                horizontalMargin: 20,
+                child: TrimTimeline(controller: _videoEditorController!,),
+
+              ),
+              //Row Edit toolbar all edit options
+              Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(onPressed: (){}, icon: Icon(Icons.content_cut,color: Colors.white,)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.crop,color: Colors.white,)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.speed,color: Colors.white,)),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.music_note,color: Colors.white,))
+
+
+
+                ],
+              ),
+
+
+              Padding(padding: EdgeInsets.all(20),
+                child: ElevatedButton(onPressed: (){},
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green
+
+                  ),
+
+
+                  child: Text(
+                    "Merge & Export Video",
+                    style: TextStyle(
+                      fontSize: 18, // Slightly larger for better visibility
+                      fontWeight: FontWeight.w900, // Extra bold for emphasis
+                      color: Colors.white,
+                      letterSpacing: 1.5, // Adds spacing between letters for a sleek look
+                      shadows: [
+                        Shadow(
+                          blurRadius: 5,
+                          color: Colors.black.withOpacity(0.3), // Subtle text shadow
+                          offset: Offset(2, 2),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center, // Ensures the text is well-aligned
+                  ),
+
+                ),
+
+              ),
+
 
 
             ]
@@ -183,6 +253,8 @@ bool Seeking  =false;
 
               ),
             ]
+
+
 
           ],
         ),
