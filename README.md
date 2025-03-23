@@ -1,6 +1,7 @@
 # short_video_editor
 
 A new Flutter project.
+![image](https://github.com/user-attachments/assets/5a5b9a21-b7f3-4e8f-b2b4-2328a6fac1a5)
 
 ## Getting Started
 
