@@ -2,10 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
+
+
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:video_editor/video_editor.dart';
 import 'package:video_player/video_player.dart';
+import 'package:ffmpeg_kit_flutter/ffmpeg_kit.dart';
+import 'package:ffmpeg_kit_flutter/return_code.dart';
+
+
 class VideoEditorScreen extends StatefulWidget {
   const VideoEditorScreen({super.key});
 
@@ -33,9 +39,19 @@ Future<void> _trimVideo () async{
    final Directory tempDir = await getTemporaryDirectory();
    final timestamp = DateTime.now();
    final String filename = "Trimmed_video $timestamp.mp4";
-
-
-
+     final String outputPath = path.join(tempDir.path , filename);
+   final String command = '-i ${_videoEditorController!.file.path} -ss $start -to $end -c copy $outputPath';
+   await FFmpegKit.execute(command).then((session) async {
+     final returnCode = await session.getReturnCode();
+     if(ReturnCode.isSuccess(returnCode)) {
+       setState(() {
+         VideoTrimTime.add(outputPath);
+       });
+       ScaffoldMessenger.of(context).showSnackBar(
+         SnackBar(content: Text('Video exported to : $outputPath')),
+       );
+     }
+   });
 }
 
   Future<void> _selectVideo () async {
