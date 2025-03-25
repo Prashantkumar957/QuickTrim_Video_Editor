@@ -3,3 +3,5 @@ android/* linguist-vendored
 android/* linguist-language=Java #if java is used, or kotlin if kotlin
 *.c linguist-vendored
 *.cpp linguist-vendored
+android/CMakeLists.txt linguist-language=C++
+android/CMakeLists.txt linguist-vendored
