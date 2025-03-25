@@ -1,0 +1,5 @@
+*.dart linguist-language=Dart
+android/* linguist-vendored
+android/* linguist-language=Java #if java is used, or kotlin if kotlin
+*.c linguist-vendored
+*.cpp linguist-vendored
