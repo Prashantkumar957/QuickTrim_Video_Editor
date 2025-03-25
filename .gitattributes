@@ -1,7 +1,14 @@
+# Force Dart as the primary language
 *.dart linguist-language=Dart
+
+# Ignore Android Native Code (if any)
 android/* linguist-vendored
-android/* linguist-language=Java #if java is used, or kotlin if kotlin
+android/CMakeLists.txt linguist-vendored
+android/CMakeLists.txt linguist-language=C++
+
+# Ignore C/C++ files completely from language stats
 *.c linguist-vendored
 *.cpp linguist-vendored
-android/CMakeLists.txt linguist-language=C++
-android/CMakeLists.txt linguist-vendored
+*.h linguist-vendored
+*.cc linguist-vendored
+*.hpp linguist-vendored
