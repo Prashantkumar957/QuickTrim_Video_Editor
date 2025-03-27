@@ -64,8 +64,8 @@ Feel free to **fork**, create a **pull request**, or submit **feature requests**
 
 ## 📧 Contact
 
-📩 Email: [yourname@example.com](mailto\:prashantkumar.offical957.com)\
-🌐 GitHub: [YourProfile](https://github.com/prashantkumar957)
+📩 Email: [prashantkumar.offical957@gmail.com](mailto\:prashantkumar.offical957@gmail.com)\
+🌐 GitHub: [prashantkumar957](https://github.com/prashantkumar957)
 
 ---
 
