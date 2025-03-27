@@ -38,15 +38,14 @@ dependencies:
   image_picker: ^1.1.2
   video_player: ^2.5.1
   video_editor: ^3.0.0
+  flutter_ffmpeg: ^0.4.2
 
 
-
+  #  ffmpeg_kit_flutter_full_gpl: ^6.0.3
   path_provider: ^2.0.11
-  ffmpeg_cli: ^0.3.0
 
 
-ffmpeg_kit_flutter_full_gpl:
-  path: ../ffmpeg-kit/flutter/full_gpl
+
 
 
 
@@ -77,6 +76,7 @@ flutter:
 
   assets:
     - assets/qlogo.png
+    - assets/sp.png
 
   #   - images/a_dot_ham.jpeg
 
