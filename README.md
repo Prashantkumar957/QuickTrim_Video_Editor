@@ -1,17 +1,72 @@
-# short_video_editor
+# 🚀 QuickTrim - Video Editor App 🎬✨
 
-A new Flutter project.
-![image](https://github.com/user-attachments/assets/5a5b9a21-b7f3-4e8f-b2b4-2328a6fac1a5)
+## 🌟 Overview
 
-## Getting Started
+QuickTrim is a powerful and user-friendly **video editing app** built with Flutter. It allows users to **crop, trim, merge, and edit videos** effortlessly. With an intuitive UI and **FFmpeg integration**, QuickTrim makes professional video editing accessible to everyone. 🎥✂️
 
-This project is a starting point for a Flutter application.
+## 🔥 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🎞️ **Trim & Cut Videos** – Select the best parts of your video.
+- ✂️ **Crop Videos** – Adjust the frame to highlight key moments.
+- 🎶 **Add Background Music** – Enhance your videos with audio.
+- 🚀 **Fast Processing** – Optimized FFmpeg commands for quick exports.
+- 📂 **Save & Share** – Export your final edit in high quality.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠️ Tech Stack
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Flutter** – Cross-platform mobile development.
+- **Dart** – Main programming language.
+- **FFmpeg** – Video processing engine.
+- **Flutter Video Editor Package** – For UI-based video manipulation.
+
+## 📦 Installation
+
+1. **Clone the repository**:
+   ```sh
+   git clone https://github.com/PrashantKumar957/QuickTrim.git
+   cd quicktrim
+   ```
+2. **Install dependencies**:
+   ```sh
+   flutter pub get
+   ```
+3. **Run the app**:
+   ```sh
+   flutter run
+   ```
+
+## 🎯 How to Use
+
+1. **Import a video** from your gallery.
+2. **Trim or crop** it as per your need.
+3. **Apply filters, music, or effects**.
+4. **Preview & export** the final edit.
+5. **Share your masterpiece!** 🚀
+
+## 📜 FFmpeg Crop Command Example
+
+```sh
+ffmpeg -i input.mp4 -filter:v "crop=400:400:100:50" -c:a copy output.mp4
+```
+
+This command crops a **400x400** area starting at **(100,50)** from the original video.
+
+## 💡 Future Enhancements
+
+- 🌈 **Filters & Effects** for creative video styling.
+- 🔄 **Speed Control** – Slow motion & time-lapse effects.
+- 🎭 **Stickers & Emojis** – Add fun elements to videos.
+
+## 🤝 Contributing
+
+Feel free to **fork**, create a **pull request**, or submit **feature requests**.
+
+## 📧 Contact
+
+📩 Email: [yourname@example.com](mailto\:prashantkumar.offical957.com)\
+🌐 GitHub: [YourProfile](https://github.com/prashantkumar957)
+
+---
+
+🔥 **QuickTrim - Make Every Second Count!** 🎬✨
+
