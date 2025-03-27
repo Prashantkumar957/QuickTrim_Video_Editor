@@ -1,6 +1,9 @@
 # 🚀 QuickTrim - Video Editor App 🎬✨
+![Screenshot 2025-03-27 144729](https://github.com/user-attachments/assets/28f67d03-9af3-493f-9717-dee264b44c8d)
 
-## 🌟 Overview
+[Screenshot 2025-03-27 145845](https://github.com/user-attachments/assets/8cabb9fd-a549-426b-b0fc-9ce11b535072)
+![Screenshot 2025-03-27 144715](https://github.com/user-attachments/assets/2aee63a2-4178-4b20-807b-9ff8c4f82d12)
+## 🌟 Overview!
 
 QuickTrim is a powerful and user-friendly **video editing app** built with Flutter. It allows users to **crop, trim, merge, and edit videos** effortlessly. With an intuitive UI and **FFmpeg integration**, QuickTrim makes professional video editing accessible to everyone. 🎥✂️
 
